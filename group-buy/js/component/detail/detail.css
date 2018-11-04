@@ -1,0 +1,86 @@
+/*detail样式*/
+.detail .pic{
+	position: relative;
+	color: #fff;
+}
+.detail .pic img{
+	width: 100%;
+	display: block;
+}
+.detail .pic h2{
+	position: absolute;
+	font-size: 26px;
+	font-weight: bold;
+	left: 20px;
+	bottom: 45px;
+}
+.detail .pic p{
+	position: absolute;
+	font-size: 16px;
+	left: 20px;
+	bottom: 20px;
+}
+.detail .detail-price{
+	background-color: #fff;
+	padding: 0 10px;
+	border-bottom: 1px solid #ccc;
+}
+.detail .detail-price .price{
+	color: #06c1ae;
+}
+.detail .detail-price .price .num{
+	font-size: 40px;
+	line-height: 50px;
+}
+.detail .detail-price button{
+	float: right;
+	background-color: #f60;
+	font-size: 12px;
+	color: #fff;
+	border: none;
+	margin-top: 9px;
+	padding: 6px 10px;
+}
+.detail .server{
+	padding: 10px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.detail .server li{
+	width: 50%;
+	float: left;
+	color: yellowgreen;
+	line-height: 30px;
+}
+.detail .server li:last-child{
+	color: #000;
+}
+.detail .information{
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.detail .information:last-child{
+	margin-bottom: 0;
+}
+.detail .information h3{
+	font-size: 24px;
+	line-height: 50px;
+	border-bottom: 1px solid #ccc;
+}
+.detail .information .content{
+	padding: 10px 0;
+}
+.detail .information .content p{
+	line-height: 40px;
+}
+.detail .information .others{
+	line-height: 30px;
+	color: #06c1ae;
+	border-top: 1px solid #ccc;
+}
+.detail .information h4{
+	font-size: 20px;
+	color: #f90;
+    line-height: 50px;
+}

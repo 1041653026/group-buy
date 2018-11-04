@@ -1,0 +1,66 @@
+/*home样式*/
+.home .nav{
+	width: 100%;
+	background-color: #fff;
+	padding: 10px 0 10px;
+	margin-bottom: 10px;
+}
+.home .nav li{
+	float: left;
+	width: 20%;
+	text-align: center;
+}
+.home .nav li a img{
+	width: 60%;
+	margin: 0 auto;
+}
+.home .nav li a span{
+	display: block;
+	font-size: 12px;
+	margin: 5px 0 10px;
+}
+.home .ad123{
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.home .ad123 li{
+	float: left;
+	width: 33.333333333%;
+	padding: 15px 0;
+	border-right: 1px solid #ccc;
+	text-align: center;
+	box-sizing:border-box;
+}
+.home .ad123 li:last-child{
+	border-right: none;
+}
+.home .ad123 li img{
+	width: 60%;
+}
+.home .ad123 li h3{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.home .ad123 li h3.color-0{
+	color: red;
+}
+.home .ad123 li h3.color-1{
+	color: green;
+}
+.home .ad123 li h3.color-2{
+	color: purple;
+}
+.home .ad123 li p{
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.home .main {
+	background-color: #fff;
+	padding: 0 10px;
+}
+.home .main h3{
+	font-size: 20px;
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;
+}

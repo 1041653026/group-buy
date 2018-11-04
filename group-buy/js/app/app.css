@@ -1,0 +1,60 @@
+a{
+	text-decoration: none;
+	color: #333;
+}
+body{
+	background-color: #efefef;
+}
+.clearfix:after{
+	content:"";
+	display: block;
+	clear: both;
+}
+/*头部开始*/
+.header{
+	background-color: #06c1ae;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	color: #fff;
+}
+.header h1{
+	font-size: 26px;
+	text-indent: 30px;
+	font-weight: bold;
+}
+.header .go-back{
+	float: left;
+	position: relative;
+}
+.header .go-back .arrow{
+	border: 10px solid transparent;
+	border-right-color: #fff;
+	position: absolute;
+	left: 2px;
+	top: 21px;
+}
+.header .go-back .arrow.green{
+	border-right-color: #06c1ae;
+	left: -7px;
+	top: -10px;
+}
+.header .login{
+	float: right;
+	margin-right: 10px;
+}
+.search{
+	background-color: #fff;
+	height: 50px;
+	padding: 10px 20px 0px;
+}
+.search input{
+	width: 100%;
+	font-size: 14px;
+	padding: 10px 20px;
+	outline: none;
+	border: none;
+	border-radius: 20px;
+	background-color: #efefef;
+	box-sizing:border-box;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,width=device-width,minimal-ui">
+	<title>爱创课堂团购网站</title>
+</head>
+<body>
+	<div id="app">
+		<div class="header clearfix">
+			<div class="go-back" @click="goBack">
+				<span class="arrow">
+					<span class="arrow green"></span>
+				</span>
+			</div>
+			<span class="login">登录</span>
+			<h1>爱创课堂团购网站</h1>
+		</div>
+		<div class="search" v-show="view != 'detail'">
+			<input type="text" placeholder="请输入搜所关键字" v-model="val" @keydown.enter="inputLastValue">
+		</div>
+		<!-- 自定义元素 -->
+		<!-- <home></home>	
+		<list></list>
+		<detail></detail> -->
+		<component :is="view" :search="lastValue" :query="query"></component>
+	</div>
+	<template id="tpl_home">
+		<section class="home">
+			<ul class="nav clearfix">
+				<li v-for="item in types">
+					<a :href="'#list/types/' + item.id">
+						<img :src="item.url" alt="">
+						<span>{{item.text}}</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="ad123 clearfix">
+				<li v-for="(item,index) in ad">
+					<a :href="'#detail/' + item.id">
+						<h3 :class="'color-' + index">{{item.title}}</h3>
+						<p>{{item.description}}</p>
+						<img :src="'imgs/ad/' + item.url" alt="">
+					</a>
+				</li>
+			</ul>
+			<div class="main">
+				<h3>猜你喜欢</h3>
+				<ul class="list">
+					<li v-for="item in list">
+						<a :href="'#detail/' + item.id" class="clearfix">
+							<img :src="'imgs/list/' + item.img" alt="">
+							<h4>{{item.title}}</h4>
+							<p>
+								<span class="price">{{item.price}}元</span>
+								<span class="origin-price">门市价:{{item.originPrice}}元</span>
+								<span class="sales">销售量{{item.sales}}</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</template>
+	<template id="tpl_list">
+		<section class="list-page">
+			<ul class="order clearfix">
+				<li v-for="item in order" @click="orderFn(item.type)">
+					<span>{{item.text}}</span>
+					<span class="arrow"></span>
+				</li>
+			</ul>
+			<ul class="list">
+				<li v-for="(item,index) in listFilter" v-show="index < 3 || showClock">
+					<a :href="'#detail/' + item.id" class="clearfix">
+						<img :src="'imgs/list/' + item.img" alt="">
+						<h4>{{item.title}}</h4>
+						<p>
+							<span class="price">{{item.price}}元</span>
+							<span class="origin-price">门市价:{{item.originPrice}}元</span>
+							<span class="sales">销售量{{item.sales}}</span>
+						</p>
+					</a>
+				</li>
+			</ul>
+			<div class="show-others" @click="showOthers" v-show="((listFilter.length -3) <=0 ? false : true) && showOthersClock">
+				<span>查看其他{{listFilter.length -3}}条团购</span>
+				<span class="arrow">
+					<span class="arrow withe"></span>
+				</span>
+			</div>
+		</section>
+	</template>
+	<template id="tpl_detail">
+		<section class="detail">
+			<div class="pic">
+				<img :src="'imgs/item/' + data.src" v-if="data.src">
+				<h2>{{data.title}}</h2>
+				<p>{{data.description}}</p>
+			</div>
+			<div class="detail-price">
+				<span class="price"><span class="num">{{data.price}}</span>元</span>
+				<span>门市价:{{data.originPrice}}元</span>
+				<button>立即购买</button>
+			</div>
+			<ul class="server clearfix">
+				<li>支持立即退货</li>
+				<li>支持随时退货</li>
+				<li>销量{{data.sales}}</li>
+			</ul>
+			<div class="information">
+				<h3>店家信息</h3>
+				<div class="content">
+					<p>{{data.storeName}}</p>
+					<p>{{data.storeAddress}}</p>
+				</div>
+				<p class="others">查看{{data.storeNum}}家分店</p>
+			</div>
+			<div class="information">
+				<h3>购买须知</h3>
+				<div class="content">
+					<h4>有效日期</h4>
+					<p>{{data.validateTime}}</p>
+					<h4>使用日期</h4>
+					<p>{{data.useTime}}</p>
+					<h4>使用规则</h4>
+					<p v-for="item in data.rules">{{item}}</p>
+				</div>
+			</div>
+		</section>
+	</template>
+	<script type="text/javascript" src="js/lib/sea.js"></script>
+	<script type="text/javascript" src="js/lib/seajs-css.js"></script>
+	<script type="text/javascript" src="js/lib/seajs-preload.js"></script>
+	<script type="text/javascript" src="js/lib/vue.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			base : "/js",
+			preload : ["lib/vue"]
+		});
+		seajs.use(["/css/reset.css",'router/router'])
+	</script>
+</body>
+</html>
